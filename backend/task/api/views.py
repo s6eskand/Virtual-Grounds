@@ -2,13 +2,6 @@ from rest_framework import views, response, status, permissions
 from .serializers import TaskSerializer
 from ..models import Task
 
-#for file implementation
-Import os 
-from django.conf import settings
-from django.http import JsonResponse
-from django.views.decorators.http import require_POST
-
-
 class TaskListCreateView(views.APIView):
 
     permission_classes = [
@@ -28,11 +21,24 @@ class TaskListCreateView(views.APIView):
         return response.Response({
             "error": "Invalid Request Body"
         }, status.HTTP_400_BAD_REQUEST)
-    
-    #file implementation
-    def file_upload(request):
-        save_path = os.path.join(settings.MEDIA_ROOT, 'uploads', request.FILES['file'])
-        path = default_storage.save(save_path, request.FILES['file'])
-        document = Document.objects.create(document=path, upload_by=request.user)
-        return JsonResponse({'document': document.id})
 
+
+class TaskAnalytics(views.APIView):
+
+    permission_classes = [
+        permissions.IsAuthenticated
+    ]
+
+    def post(self, request):
+        curr_date = request.data["date"]
+        split_date = curr_date.split("-")
+        new_day = int(split_date[2]) - 7
+        split_date[2] = str(new_day)
+        last_week = "-".join(split_date)
+        queryset = Task.objects.filter(
+            owner=self.request.user, 
+            date_to_complete__range=[last_week, curr_date]
+        )
+        serializer = TaskSerializer(queryset, many=True)
+        # hours per week organized
+        # 
