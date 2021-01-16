@@ -32,10 +32,10 @@ function Background(props) {
 
             </Card>
             <CardGroup>
-              <Card className = 'button-center' style={{backgroundColor: 'rgba(0, 0, 0, 0)'}}>
+              <Card className = 'button-center' style={{backgroundColor: 'rgba(0, 0, 0, 0)', border: 'none'}}>
               <Button href="../views/Login.jsx" variant="dark" onClick={event =>  window.location.href='../views/Login.jsx'}>Log In</Button>{' '}
               </Card>
-              <Card className = 'button-center' style={{backgroundColor: 'rgba(0, 0, 0, 0)'}}>
+              <Card className = 'button-center' style={{backgroundColor: 'rgba(0, 0, 0, 0)', border: 'none'}}>
               <Button variant="dark">Sign Up</Button>{' '}
               </Card>
             </CardGroup>
@@ -46,19 +46,19 @@ function Background(props) {
 
           <div className = 'center' style={{ outline: 'none'}}>
             <CardGroup style={{ width: '50rem', justifyContent: 'center' }} className="text-center center">
-              <Card style={{backgroundColor: 'rgba(0, 0, 0, 0)'}} >
+              <Card style={{backgroundColor: 'rgba(0, 0, 0, 0)', border: 'none'}} >
                 <Card.Img src= {cal} alt="Card image" style={{width: '40%', marginLeft:'30%'}}/>
                 <Card.Text style={{ fontSize: '2vh', color: '#6B6C70', fontWeight:'bold'  }}>Interactive Calendars</Card.Text>
               </Card>
-              <Card style={{backgroundColor: 'rgba(0, 0, 0, 0)'}}>
+              <Card style={{backgroundColor: 'rgba(0, 0, 0, 0)', border: 'none'}}>
               <Card.Img src= {list} alt="Card image"  style={{width: '40%', marginLeft:'30%'}}/>
                 <Card.Text style={{ fontSize: '2vh', color: '#6B6C70', fontWeight:'bold'  }}>Planning Boards</Card.Text>
               </Card>
-              <Card style={{backgroundColor: 'rgba(0, 0, 0, 0)'}}>
+              <Card style={{backgroundColor: 'rgba(0, 0, 0, 0)', border: 'none'}}>
               <Card.Img src= {voice} alt="Card image" style={{width: '40%', marginLeft:'30%'}}/>
                 <Card.Text style={{ fontSize: '2vh', color: '#6B6C70', fontWeight:'bold'  }}>Voice Channels</Card.Text>
               </Card>
-              <Card style={{backgroundColor: 'rgba(0, 0, 0, 0)'}}> 
+              <Card style={{backgroundColor: 'rgba(0, 0, 0, 0)', border: 'none'}}> 
               <Card.Img src= {gaming} alt="Card image" style={{width: '40%', marginLeft:'30%'}}/>
                 <Card.Text style={{ fontSize: '2vh', color: '#6B6C70', fontWeight:'bold'  }}>Game Rooms</Card.Text>
               </Card>
