@@ -25,7 +25,10 @@ SECRET_KEY = '46#+yfu@!%(%q0q8#+gve=!+1fjm0sa7589x1y+tul0eui^r7+'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    # 'htn-db-7fw.aws-us-east-2.cockroachlabs.cloud',
+    # 'localhost'
+]
 
 
 # Application definition
@@ -41,13 +44,9 @@ INSTALLED_APPS = [
     'knox',
     'corsheaders',
     'authentication',
+    'userprofile',
+    'task',
 ]
-
-REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': (
-        'knox.auth.TokenAuthentication',
-    )
-}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -86,8 +85,12 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django_cockroachdb',
+        'NAME': 'virtualgrounds',
+        'USER': 'common',
+        'PASSWORD': 'hackthenorth2021',
+        'HOST': 'htn-db-7fw.aws-us-east-2.cockroachlabs.cloud',
+        'PORT': '26257'
     }
 }
 
@@ -129,6 +132,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'knox.auth.TokenAuthentication',
+    )
+}
 
 CORS_ORIGIN_ALLOW_ALL = True
 CORS_ALLOW_CREDENTIALS = True
