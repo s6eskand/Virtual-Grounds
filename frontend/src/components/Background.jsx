@@ -33,7 +33,7 @@ function Background(props) {
             </Card>
             <CardGroup>
               <Card className = 'button-center' style={{backgroundColor: 'rgba(0, 0, 0, 0)'}}>
-              <Button variant="dark">Log In</Button>{' '}
+              <Button variant="dark" onClick={event =>  window.location.href='../views/Login.jsx'}>Log In</Button>{' '}
               
               </Card>
               <Card className = 'button-center' style={{backgroundColor: 'rgba(0, 0, 0, 0)'}}>

@@ -13,14 +13,14 @@ import { BrowserRouter } from "react-router-dom";
 // custom components
 
 import Landing from './views/Landing';
-
+import Login from './views/Login';
 function App() {
   return (
     <div> 
       <Provider store={store}>
             <PersistGate persistor={persistor} loading={null}>
                 <BrowserRouter>
-                  <Landing />
+                  <Login />
                 </BrowserRouter>
             </PersistGate>
         </Provider>
