@@ -7,13 +7,12 @@ import Card from 'react-bootstrap/Card';
 import map from '../img/map.png';
 
 
-export default function Login() {
-  const [email, setEmail] = useState("");
+export default function Signup() {
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [firstname, setFirst] = useState("");
-  const [lastname, setLast] = useState("");
+
   function validateForm() {
-    return email.length > 0 && password.length > 0;
+    return username.length > 0 && password.length > 0;
   }
 
   function handleSubmit(event) {
@@ -36,38 +35,17 @@ export default function Login() {
           <div className="Login">
       <Form onSubmit={handleSubmit}>
 
-      <Form.Group size="lg" controlId="firstname" className="text-left">
+     
+
+
+        <Form.Group size="lg" controlId="username" className="text-left">
           
-          <Form.Label>First Name</Form.Label>
+          <Form.Label>Username</Form.Label>
           <Form.Control
             autoFocus
-            type="firstname"
-            value={firstname}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-        </Form.Group >
-
-        <Form.Group size="lg" controlId="lastname" className="text-left">
-          
-          <Form.Label>Last Name</Form.Label>
-          <Form.Control
-            autoFocus
-            type="emalastnameil"
-            value={lastname}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-        </Form.Group >
-
-
-
-        <Form.Group size="lg" controlId="email" className="text-left">
-          
-          <Form.Label>Email</Form.Label>
-          <Form.Control
-            autoFocus
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            type="username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
           />
         </Form.Group >
         <Form.Group size="lg" controlId="password" className="text-left">
