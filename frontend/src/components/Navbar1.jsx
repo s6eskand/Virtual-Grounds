@@ -11,14 +11,14 @@ function Navbar1(props) {
     })
 
     return(
-      <Nav className="justify-content-center" activeKey="/#home">
+      <Nav className="justify-content-center" activeKey="#home" id="home">
         <Navbar bg="light" expand="lg" fixed="top">
         <Navbar.Brand href="#home">Virtual Grounds</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav" className="justify-content-center">
           <Nav className="justify-content-center" fill='true'>
           <Nav.Item>
-            <Nav.Link href="#howitworks">How it Works</Nav.Link>
+            <Nav.Link href="#home">Home</Nav.Link>
           </Nav.Item>
           <Nav.Item>
             <Nav.Link href="#features">Features</Nav.Link>
@@ -27,7 +27,7 @@ function Navbar1(props) {
             <Nav.Link href="#pricing">Pricing</Nav.Link>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link href="#contactus">Contact Us</Nav.Link>
+            <Nav.Link href="#contact">Contact Us</Nav.Link>
           </Nav.Item>
           </Nav>
         </Navbar.Collapse>
