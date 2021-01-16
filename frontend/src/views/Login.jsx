@@ -8,16 +8,16 @@ import map from '../img/map.png';
 
 
 export default function Login() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-
-  function validateForm() {
-    return email.length > 0 && password.length > 0;
-  }
-
-  function handleSubmit(event) {
-    event.preventDefault();
-  }
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+  
+    function validateForm() {
+      return username.length > 0 && password.length > 0;
+    }
+  
+    function handleSubmit(event) {
+      event.preventDefault();
+    }
 
   return (
     <div>
@@ -26,7 +26,7 @@ export default function Login() {
         <Card.Img src= {map} alt="Card image" style={{backgroundColor: 'white'}}/>
         <Card.ImgOverlay>
           
-          <Card.Title ></Card.Title>
+      
           <div className="text-center" >
           <Card.Title  className="maintitle" style={{ fontSize: '10vh', fontWeight:'bold' }}> 
             Virtual Grounds
@@ -34,13 +34,18 @@ export default function Login() {
           <Card.Text style={{ fontSize: '3vh', color: '#6B6C70' }}>The all-in-one virtual space</Card.Text>
           <div className="Login">
       <Form onSubmit={handleSubmit}>
-        <Form.Group size="lg" controlId="email" className="text-left">
-          <Form.Label>Email</Form.Label>
+
+     
+
+
+        <Form.Group size="lg" controlId="username" className="text-left">
+          
+          <Form.Label>Username</Form.Label>
           <Form.Control
             autoFocus
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            type="username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
           />
         </Form.Group >
         <Form.Group size="lg" controlId="password" className="text-left">
@@ -52,7 +57,7 @@ export default function Login() {
           />
         </Form.Group>
         <Button block size="lg" type="submit" disabled={!validateForm()}>
-          Log In
+          Sign Up
         </Button>
       </Form>
     </div>
