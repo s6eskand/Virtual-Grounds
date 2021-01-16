@@ -20,4 +20,9 @@
 /frontend/yarn-debug.log*
 /frontend/yarn-error.log*
 
+/frontend/.eslintcache
+
 /.vscode
+
+/backend/db.sqlite3
+*.pyc
