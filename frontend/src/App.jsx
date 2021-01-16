@@ -14,13 +14,15 @@ import { BrowserRouter } from "react-router-dom";
 
 import Landing from './views/Landing';
 import Login from './views/Login';
+import Signup from './views/Signup';
+
 function App() {
   return (
     <div> 
       <Provider store={store}>
             <PersistGate persistor={persistor} loading={null}>
                 <BrowserRouter>
-                  <Login />
+                  <Signup />
                 </BrowserRouter>
             </PersistGate>
         </Provider>

@@ -10,7 +10,8 @@ import map from '../img/map.png';
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+  const [firstname, setFirst] = useState("");
+  const [lastname, setLast] = useState("");
   function validateForm() {
     return email.length > 0 && password.length > 0;
   }
@@ -26,7 +27,7 @@ export default function Login() {
         <Card.Img src= {map} alt="Card image" style={{backgroundColor: 'white'}}/>
         <Card.ImgOverlay>
           
-          <Card.Title ></Card.Title>
+      
           <div className="text-center" >
           <Card.Title  className="maintitle" style={{ fontSize: '10vh', fontWeight:'bold' }}> 
             Virtual Grounds
@@ -34,7 +35,33 @@ export default function Login() {
           <Card.Text style={{ fontSize: '3vh', color: '#6B6C70' }}>The all-in-one virtual space</Card.Text>
           <div className="Login">
       <Form onSubmit={handleSubmit}>
+
+      <Form.Group size="lg" controlId="firstname" className="text-left">
+          
+          <Form.Label>First Name</Form.Label>
+          <Form.Control
+            autoFocus
+            type="firstname"
+            value={firstname}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+        </Form.Group >
+
+        <Form.Group size="lg" controlId="lastname" className="text-left">
+          
+          <Form.Label>Last Name</Form.Label>
+          <Form.Control
+            autoFocus
+            type="emalastnameil"
+            value={lastname}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+        </Form.Group >
+
+
+
         <Form.Group size="lg" controlId="email" className="text-left">
+          
           <Form.Label>Email</Form.Label>
           <Form.Control
             autoFocus
@@ -52,7 +79,7 @@ export default function Login() {
           />
         </Form.Group>
         <Button block size="lg" type="submit" disabled={!validateForm()}>
-          Log In
+          Sign Up
         </Button>
       </Form>
     </div>
