@@ -33,8 +33,7 @@ function Background(props) {
             </Card>
             <CardGroup>
               <Card className = 'button-center' style={{backgroundColor: 'rgba(0, 0, 0, 0)'}}>
-              <Button variant="dark" onClick={event =>  window.location.href='../views/Login.jsx'}>Log In</Button>{' '}
-              
+              <Button href="../views/Login.jsx" variant="dark" onClick={event =>  window.location.href='../views/Login.jsx'}>Log In</Button>{' '}
               </Card>
               <Card className = 'button-center' style={{backgroundColor: 'rgba(0, 0, 0, 0)'}}>
               <Button variant="dark">Sign Up</Button>{' '}
@@ -67,7 +66,7 @@ function Background(props) {
           </div>
         </Card.ImgOverlay>
       </Card>
-      
+
       </div>
 
     )
