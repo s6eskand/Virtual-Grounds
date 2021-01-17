@@ -22,11 +22,3 @@ class SleepLogCreateView(views.APIView):
         return response.Response({
             "error": "Invalid Request Body"
         }, status.HTTP_400_BAD_REQUEST)
-
-
-        # hours per week organized
-        # hours per day on average
-
-
-#create function to get sleep analytics from fitbit in a date range for a user
-#total number in hours per week

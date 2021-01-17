@@ -21,9 +21,9 @@ function Background(props) {
         <Card.Img src= {map} alt="Card image" style={{backgroundColor: 'white'}}/>
         <Card.ImgOverlay>
           
-          <Card.Title >Card title</Card.Title>
-          <div className="text-center" >
-          <Card.Title  className="maintitle" style={{ fontSize: '10vh', fontWeight:'bold' }}> 
+          <Card.Title>Card title</Card.Title>
+          <div style={{marginTop: -80}} className="text-center" >
+          <Card.Title className="maintitle" style={{ fontSize: '10vh', fontWeight:'bold' }}> 
             Virtual Grounds
           </Card.Title>
           <Card.Text style={{ fontSize: '3vh', color: '#6B6C70' }}>The all-in-one virtual space</Card.Text>

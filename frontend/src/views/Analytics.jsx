@@ -10,9 +10,7 @@ function Analytics(){
 
     return(
         <div>
-            <Navbar2/>
             <AnalyticsPage/>
-            
         </div>
     )
 }

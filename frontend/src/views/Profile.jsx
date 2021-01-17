@@ -10,9 +10,7 @@ function Profile(){
 
     return(
         <div>
-            <Navbar2/>
             <ProfileDone/>
-            
         </div>
     )
 }

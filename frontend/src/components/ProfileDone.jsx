@@ -1,12 +1,32 @@
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Form from "react-bootstrap/Form";
 import map from '../img/map.png';
 import ProfileEdit from './ProfileEdit';
+
+import { Link, useHistory } from 'react-router-dom';
+
+// redux
+import withShipment from '../withShipment';
+import {
+  userProfileSelector
+} from '../redux/selectors/userProfile';
+import {
+  ownerSelector
+} from '../redux/selectors/auth';
+import {
+  getUserProfile
+} from '../redux/actions/userProfile'
+
 function ProfileDone(props) {
+    const history = useHistory();
+
+    useEffect(() => {
+      props.getUserProfile()
+    }, [])
 
     return(
       <div>
@@ -30,33 +50,29 @@ function ProfileDone(props) {
         </div>
         <div class="panel-body">
           <p></p>
-          <div class="form-group" >
-          <p>Username</p>
-          <p></p>
-          </div>
           <div class="form-group">
           <p>School</p>
-          <p>{props.school}</p>
+          <p>{props.userProfile.school}</p>
           </div>
           <div class="form-group">
           <p>Term</p>
-          <p>{props.term}</p>
+          <p>{props.userProfile.term}</p>
           </div>
           <div class="form-group">
           <p>Term Type</p>
-          <p>{props.term_type}</p>
+          <p>{props.userProfile.term_type}</p>
           </div>
           <div class="form-group">
           <p>Company</p>
-          <p>{props.company}</p>
+          <p>{props.userProfile.company}</p>
           </div>
           <div class="form-group">
           <p>Job Search Status</p>
-          <p>{props.status}</p>
+          <p>{props.userProfile.job_search_status ? "Looking" : "Not looking"}</p>
           </div>
           <div class="form-group">
           <p>Bio</p>
-          <p>{props.bio}</p>
+          <p>{props.userProfile.biography}</p>
           </div>
           <div class="form-group">
           <p>Interests</p>
@@ -67,6 +83,7 @@ function ProfileDone(props) {
       </div>
 
     </form>
+    <button onClick={() => history.push('/edit/profile')} className="btn btn-primary" style={{marginBottom: 20}}>Edit</button>
   </div>
 </div>
 
@@ -76,5 +93,16 @@ function ProfileDone(props) {
         )
     }
     
+const mapStateToProps = (state) => ({
+  owner: ownerSelector(state),
+  userProfile: userProfileSelector(state)
+})
+
+const actionCreators = {
+  getUserProfile
+}
     
-export default ProfileDone;
+export default withShipment({
+  mapStateToProps,
+  actionCreators
+}, ProfileDone);
