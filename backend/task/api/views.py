@@ -1,6 +1,7 @@
 from rest_framework import views, response, status, permissions
 from .serializers import TaskSerializer
 from ..models import Task
+from ..models import 
 
 # helper function to convert datetime.time into numeric value
 def datetime_to_int(datetime):
@@ -29,6 +30,26 @@ class TaskListCreateView(views.APIView):
             "error": "Invalid Request Body"
         }, status.HTTP_400_BAD_REQUEST)
 
+class SleepLogCreateView(views.APIView):
+
+    permission_classes = [
+        permissions.IsAuthenticated
+    ]
+
+    def get(self, request):
+        queryset = SleepLog.objects.filter(owner=self.request.user)
+        serializer = SleepLogSerializer(queryset, many=True)
+        return response.Response(serializer.data)
+
+    def post(self, request):
+        serializer = SleepLogSerializer(data=request.data)
+        
+        if serializer.is_valid():
+            serializer.save()
+            return response.Response(serializer.data, status.HTTP_201_CREATED)
+        return response.Response({
+            "error": "Invalid Request Body"
+        }, status.HTTP_400_BAD_REQUEST)
 
 class TaskAnalytics(views.APIView):
 
@@ -54,11 +75,20 @@ class TaskAnalytics(views.APIView):
             owner=self.request.user, 
             date_to_complete__range=[last_week, curr_date]
         )
+        sleepqueryset = SleepLog.objects.filter(
+            owner=self.request.user, 
+            date__range=[last_week, curr_date]
+        )
+
+        sleep = 0
+        for sleep in queryset
+            sleep += sleep.sleep_amount      
 
         categories = {
             "total": 0,
             "total_completed": 0,
             "total_uncompleted": 0, 
+            "sleep": sleep,
         }
         for task in queryset:
             category = task.task_name
@@ -76,7 +106,7 @@ class TaskAnalytics(views.APIView):
             else:
                 categories[category] = time_for_task
 
-        categories["available_down_time"] = 168 - categories["total"]
+        categories["available_down_time"] = 168 - categories["total"] - sleep
 
         return response.Response(
             categories, status=status.HTTP_200_OK
