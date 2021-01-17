@@ -1,14 +1,15 @@
-import React, { useState } from 'react';
-
+import React from 'react';
 
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 
+// redux
+import withShipment from '../withShipment';
+import {
+  authLogout
+} from '../redux/actions/auth';
 
 function Navbar2(props) {
-    const [state, setState] = useState({
-        counter: 0,
-    })
 
     return(
       <Nav className="justify-content-center" activeKey="#home" id="home" >
@@ -20,6 +21,9 @@ function Navbar2(props) {
           <Nav.Item>
             <Nav.Link href="#home">Dashboard</Nav.Link>
           </Nav.Item>
+          <Nav.Item>
+            <Nav.Link onClick={props.authLogout}>Logout</Nav.Link>
+          </Nav.Item>
 
           </Nav>
         </Navbar.Collapse>
@@ -28,5 +32,15 @@ function Navbar2(props) {
     )
 }
 
+const mapStateToProps = (state) => ({
 
-export default Navbar2;
+});
+
+const actionCreators = {
+  authLogout,
+}
+
+export default withShipment({
+  mapStateToProps,
+  actionCreators
+}, Navbar2);

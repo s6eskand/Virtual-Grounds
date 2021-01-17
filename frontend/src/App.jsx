@@ -17,6 +17,7 @@ import Navbar1 from './components/Navbar1';
 import Login from './views/Login';
 import Signup from './views/Signup';
 import Profile from './views/Profile';
+import Base from './views/Base';
 function App() {
   return (
     <div> 
@@ -25,7 +26,7 @@ function App() {
                 <BrowserRouter>
                   <Navbar1 />
                   <Switch>
-                    <Landing />
+                    <Base />
                   </Switch>
                 </BrowserRouter>
             </PersistGate>

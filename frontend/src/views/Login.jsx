@@ -6,8 +6,13 @@ import "./Login.css";
 import Card from 'react-bootstrap/Card';
 import map from '../img/map.png';
 
+// redux
+import withShipment from '../withShipment';
+import {
+  authLogin
+} from '../redux/actions/auth';
 
-export default function Login() {
+function Login(props) {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
   
@@ -17,6 +22,11 @@ export default function Login() {
   
     function handleSubmit(event) {
       event.preventDefault();
+      const loginInfo = {
+        username: username,
+        password: password
+      }
+      props.authLogin(loginInfo);
     }
 
   return (
@@ -56,8 +66,8 @@ export default function Login() {
             onChange={(e) => setPassword(e.target.value)}
           />
         </Form.Group>
-        <Button block size="lg" type="submit" disabled={!validateForm()}>
-          Sign Up
+        <Button block size="lg" type="submit" disabled={!validateForm()} onClick={handleSubmit}>
+          Sign In
         </Button>
       </Form>
     </div>
@@ -69,3 +79,16 @@ export default function Login() {
     </div>
   );
 }
+
+const mapStateToProps = (state) => ({
+
+});
+
+const actionCreators = {
+  authLogin,
+}
+
+export default withShipment({
+  mapStateToProps,
+  actionCreators
+}, Login);

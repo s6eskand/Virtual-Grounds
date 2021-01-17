@@ -1,19 +1,18 @@
 import {
-    STORE_USER,
     STORE_TOKEN,
-    SET_IS_AUTHENTICATED
+    STORE_OWNER,
 } from "../../constants/auth";
 import {
     AUTH_KEY
 } from "../../constants/keys";
 import storage from 'redux-persist/lib/storage';
-import {persistReducer} from "redux-persist";
+import { persistReducer } from "redux-persist";
 
 const initialState = {
     isAuthenticated: false,
     token: null,
-    userInfo: {}
-}
+    owner: null,
+};
 
 const auth = (state = initialState, action) => {
     switch (action.type) {
@@ -22,26 +21,21 @@ const auth = (state = initialState, action) => {
                 ...state,
                 isAuthenticated: action.isAuthenticated,
                 token: action.token
-            }
-        case STORE_USER:
+            };
+        case STORE_OWNER:
             return {
                 ...state,
-                userInfo: action.userInfo
-            }
-        case SET_IS_AUTHENTICATED:
-            return {
-                ...state,
-                isAuthenticated: action.isAuthenticated
-            }
+                owner: action.owner
+            };
         default:
-            return state
+            return state;
     }
-}
+};
 
 const config = {
     key: AUTH_KEY,
     storage: storage,
-    whitelist: ['userInfo', 'isAuthenticated'],
+    whitelist: ['isAuthenticated', 'owner'],
 };
 
 export default persistReducer(config, auth)
