@@ -43,12 +43,12 @@ function Pricing(props) {
                 <ul className="list-unstyled my-5 text-small text-left">
 
                   <li className="mb-3">
-                    <i className="fa fa-check mr-2 text-primary"></i>Interactive Calendars</li>
+                    <i className="fa fa-check mr-2 text-primary"></i>Chat Groups</li>
                   <li className="mb-3">
                     <i className="fa fa-check mr-2 text-primary"></i>Planning Boards</li>
                   <li className="mb-3 text-muted">
                     <i className="fa fa-times mr-2"></i>
-                    <del>Productivity Analytics</del>
+                    <del>Interactive Calendar</del>
                   </li>
                   <li className="mb-3 text-muted">
                     <i className="fa fa-times mr-2"></i>
@@ -56,7 +56,7 @@ function Pricing(props) {
                   </li>
                   <li className="mb-3 text-muted">
                     <i className="fa fa-times mr-2"></i>
-                    <del> Job Search</del>
+                    <del> Productivity Analytics</del>
                   </li>
                 </ul>
                 <a href="#" className="btn btn-primary btn-block p-2 shadow rounded-pill">Subscribe</a>
@@ -72,11 +72,11 @@ function Pricing(props) {
       
                 <ul className="list-unstyled my-5 text-small text-left font-weight-normal">
                   <li className="mb-3">
-                    <i className="fa fa-check mr-2 text-primary"></i> Interactive Calendars</li>
+                    <i className="fa fa-check mr-2 text-primary"></i> Chat Groups</li>
                   <li className="mb-3">
                     <i className="fa fa-check mr-2 text-primary"></i> Planning Boards</li>
                   <li className="mb-3">
-                    <i className="fa fa-check mr-2 text-primary"></i> Productivity Analytics</li>
+                    <i className="fa fa-check mr-2 text-primary"></i>Interactive Calendar</li>
 
                     <li className="mb-3 text-muted">
                     <i className="fa fa-times mr-2"></i>
@@ -84,7 +84,7 @@ function Pricing(props) {
                   </li>
                   <li className="mb-3 text-muted">
                     <i className="fa fa-times mr-2"></i>
-                    <del> Job Search</del>
+                    <del> Productivity Analytics</del>
                   </li>
                 </ul>
                 <a href="#" className="btn btn-primary btn-block p-2 shadow rounded-pill">Subscribe</a>
@@ -100,15 +100,15 @@ function Pricing(props) {
       
                 <ul className="list-unstyled my-5 text-small text-left font-weight-normal">
                   <li className="mb-3">
-                    <i className="fa fa-check mr-2 text-primary"></i> Interactive Calendars</li>
+                    <i className="fa fa-check mr-2 text-primary"></i> Chat Groups</li>
                   <li className="mb-3">
                     <i className="fa fa-check mr-2 text-primary"></i> Planning Boards</li>
                   <li className="mb-3">
-                    <i className="fa fa-check mr-2 text-primary"></i> Productivity Analytics</li>
+                    <i className="fa fa-check mr-2 text-primary"></i> Interactive Calendar</li>
                   <li className="mb-3">
                     <i className="fa fa-check mr-2 text-primary"></i> Discovery Mode</li>
                   <li className="mb-3">
-                    <i className="fa fa-check mr-2 text-primary"></i> Job Search</li>
+                    <i className="fa fa-check mr-2 text-primary"></i> Productivity Analytics</li>
                 </ul>
                 <a href="#" className="btn btn-primary btn-block p-2 shadow rounded-pill">Subscribe</a>
               </div>

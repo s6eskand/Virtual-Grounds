@@ -12,6 +12,7 @@ function Profile(){
         <div>
             <Navbar2/>
             <ProfileEdit/>
+            
         </div>
     )
 }

@@ -8,7 +8,7 @@ import map from '../img/map.png';
 import cal from '../img/cal.png';
 import list from '../img/list.png';
 import prod from '../img/prod.png';
-import job from '../img/job.png';
+import chat from '../img/chat.png';
 import disc from '../img/disc.png';
 
 import { Link } from 'react-router-dom';
@@ -60,8 +60,8 @@ function Background(props) {
                 <Card.Text style={{ fontSize: '2vh', color: '#6B6C70', fontWeight:'bold'  }}>Productivity Analytics</Card.Text>
               </Card>
               <Card style={{backgroundColor: 'rgba(0, 0, 0, 0)', border: 'none'}}> 
-              <Card.Img src= {job} alt="Card image" style={{width: '40%', marginLeft:'30%'}}/>
-                <Card.Text style={{ fontSize: '2vh', color: '#6B6C70', fontWeight:'bold'  }}>Job Search</Card.Text>
+              <Card.Img src= {chat} alt="Card image" style={{width: '40%', marginLeft:'30%'}}/>
+                <Card.Text style={{ fontSize: '2vh', color: '#6B6C70', fontWeight:'bold'  }}>Chat Groups</Card.Text>
               </Card>
    
               <Card style={{backgroundColor: 'rgba(0, 0, 0, 0)', border: 'none'}}> 

@@ -3,7 +3,7 @@ import React from 'react';
 import cal from '../img/cal.png';
 import list from '../img/list.png';
 import prod from '../img/prod.png';
-import job from '../img/job.png';
+import chat from '../img/chat.png';
 import disc from '../img/disc.png';
 import Card from "react-bootstrap/esm/Card";
 import map from '../img/map.png'
@@ -70,9 +70,9 @@ function Features(props) {
                 <div class="feature-box-02">
                   <i class="icon theme-bg ti-camera"></i>
                   <div class="feature-content">
-                  <img src={job} style={{width: '8vw', alignContent:"center", paddingBottom:"50px"}}></img>
-                  <h4>Job Search</h4>
-                    <p>Job Search is a feature that currates job postings from LinkedIn, Lever and more</p>
+                  <img src={chat} style={{width: '8vw', alignContent:"center", paddingBottom:"50px"}}></img>
+                  <h4>Chat Groups</h4>
+                    <p>Chat Groups is a feature that currates job postings from LinkedIn, Lever and more</p>
                     
                   </div>
                 </div> 

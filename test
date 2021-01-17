@@ -160,3 +160,10 @@ li {
   </div>
 </div>
 </div>
+
+
+
+                  <Navbar1 />
+                  <Switch>
+                    <Landing />
+                  </Switch>
