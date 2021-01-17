@@ -6,9 +6,10 @@ import Button from 'react-bootstrap/Button';
 import CardGroup from 'react-bootstrap/CardGroup';
 import map from '../img/map.png';
 import cal from '../img/cal.png';
-import gaming from '../img/gaming.png';
 import list from '../img/list.png';
-import voice from '../img/voice.png';
+import prod from '../img/prod.png';
+import job from '../img/job.png';
+import disc from '../img/disc.png';
 function Background(props) {
     const [state, setState] = useState({
         counter: 0,
@@ -30,8 +31,8 @@ function Background(props) {
           <div >
             <Card className='space-card' style={{backgroundColor: 'rgba(0, 0, 0, 0)', width:'50px'}}>
 
-            </Card>
-            <CardGroup>
+            </Card >
+            <CardGroup style={{ width: '40vh', marginLeft:'39%'}}>
               <Card className = 'button-center' style={{backgroundColor: 'rgba(0, 0, 0, 0)', border: 'none'}}>
               <Button href="../views/Login.jsx" variant="dark" onClick={event =>  window.location.href='../views/Login.jsx'}>Log In</Button>{' '}
               </Card>
@@ -45,7 +46,7 @@ function Background(props) {
 
 
           <div className = 'center' style={{ outline: 'none'}}>
-            <CardGroup style={{ width: '50rem', justifyContent: 'center' }} className="text-center center">
+            <CardGroup style={{ width: '70rem', justifyContent: 'center' }} className="text-center center">
               <Card style={{backgroundColor: 'rgba(0, 0, 0, 0)', border: 'none'}} >
                 <Card.Img src= {cal} alt="Card image" style={{width: '40%', marginLeft:'30%'}}/>
                 <Card.Text style={{ fontSize: '2vh', color: '#6B6C70', fontWeight:'bold'  }}>Interactive Calendars</Card.Text>
@@ -55,12 +56,17 @@ function Background(props) {
                 <Card.Text style={{ fontSize: '2vh', color: '#6B6C70', fontWeight:'bold'  }}>Planning Boards</Card.Text>
               </Card>
               <Card style={{backgroundColor: 'rgba(0, 0, 0, 0)', border: 'none'}}>
-              <Card.Img src= {voice} alt="Card image" style={{width: '40%', marginLeft:'30%'}}/>
-                <Card.Text style={{ fontSize: '2vh', color: '#6B6C70', fontWeight:'bold'  }}>Voice Channels</Card.Text>
+              <Card.Img src= {prod} alt="Card image" style={{width: '40%', marginLeft:'30%'}}/>
+                <Card.Text style={{ fontSize: '2vh', color: '#6B6C70', fontWeight:'bold'  }}>Productivity Analytics</Card.Text>
               </Card>
               <Card style={{backgroundColor: 'rgba(0, 0, 0, 0)', border: 'none'}}> 
-              <Card.Img src= {gaming} alt="Card image" style={{width: '40%', marginLeft:'30%'}}/>
-                <Card.Text style={{ fontSize: '2vh', color: '#6B6C70', fontWeight:'bold'  }}>Game Rooms</Card.Text>
+              <Card.Img src= {job} alt="Card image" style={{width: '40%', marginLeft:'30%'}}/>
+                <Card.Text style={{ fontSize: '2vh', color: '#6B6C70', fontWeight:'bold'  }}>Job Search</Card.Text>
+              </Card>
+   
+              <Card style={{backgroundColor: 'rgba(0, 0, 0, 0)', border: 'none'}}> 
+              <Card.Img src= {disc} alt="Card image" style={{width: '40%', marginLeft:'30%'}}/>
+                <Card.Text style={{ fontSize: '2vh', color: '#6B6C70', fontWeight:'bold'  }}>Discovery Mode</Card.Text>
               </Card>
             </CardGroup>
           </div>
