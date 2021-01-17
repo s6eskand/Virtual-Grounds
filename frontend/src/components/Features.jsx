@@ -6,7 +6,7 @@ import prod from '../img/prod.png';
 import chat from '../img/chat.png';
 import disc from '../img/disc.png';
 import Card from "react-bootstrap/esm/Card";
-import map from '../img/map.png'
+import map from '../img/map.png';
 
 function Features(props) {
 

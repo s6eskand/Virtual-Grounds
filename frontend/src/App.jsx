@@ -30,7 +30,7 @@ function App() {
                 <BrowserRouter>
                   <Navbar3 />
                   <Switch>
-                    <Board />
+                    <Profile />
                   </Switch>
                 </BrowserRouter>
             </PersistGate>
