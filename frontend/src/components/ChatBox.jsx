@@ -33,14 +33,24 @@ function ChatBox(props) {
         <div class="panel-heading">
         <h4 class="panel-title">Megan F.</h4>
         </div>
-        <p>Hi my name is Megan</p>
+        <p
+        style={{textAlign:'left', 
+        marginRight:480,
+        borderRadius: '3px',
+        padding: 10,
+        margin: "0 0 8px 0",
+        minHeight: "50px",
+        backgroundColor: "#4267B2",
+        color: "white"}} 
+        
+        >Hi my name is Megan</p>
         <p style={{textAlign:'right', 
     marginLeft:520,
     borderRadius: '3px',
     padding: 10,
     margin: "0 0 8px 0",
     minHeight: "50px",
-    backgroundColor: "#263B4A",
+    backgroundColor: "#4267B2",
     color: "white"}} >Hey I'm Brandon</p>
         <div class="panel-body" style={{marginTop:'500px'}}>
           <div class="form-group">
@@ -57,7 +67,7 @@ function ChatBox(props) {
             onChange={(e) => setMessage(e.target.value)}
           />
         </Form.Group >
-        <Button block size="md" type="save"  style={{ width:'180px', marginLeft:"30%"}} variant="outline-dark">
+        <Button block size="md" type="save"  style={{ width:'180px', marginLeft:"70%"}} variant="outline-dark">
           Send
         </Button>
         </Form>

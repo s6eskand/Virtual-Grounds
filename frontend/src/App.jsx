@@ -31,7 +31,7 @@ function App() {
                 <BrowserRouter>
                   <Navbar2 />
             
-                    <Analytics />
+                    <Chat />
             
                 </BrowserRouter>
             </PersistGate>
