@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import CardDeck from 'react-bootstrap/CardDeck';
 import Card from 'react-bootstrap/Card';
@@ -10,10 +10,10 @@ import list from '../img/list.png';
 import prod from '../img/prod.png';
 import job from '../img/job.png';
 import disc from '../img/disc.png';
+
+import { Link } from 'react-router-dom';
+
 function Background(props) {
-    const [state, setState] = useState({
-        counter: 0,
-    })
 
     return(
       <div>
@@ -34,10 +34,10 @@ function Background(props) {
             </Card >
             <CardGroup style={{ width: '40vh', marginLeft:'39%'}}>
               <Card className = 'button-center' style={{backgroundColor: 'rgba(0, 0, 0, 0)', border: 'none'}}>
-              <Button href="../views/Login.jsx" variant="dark" onClick={event =>  window.location.href='../views/Login.jsx'}>Log In</Button>{' '}
+              <Button variant="dark"><Link style={{color: '#fff'}} to="/login">Log In</Link></Button>{' '}
               </Card>
               <Card className = 'button-center' style={{backgroundColor: 'rgba(0, 0, 0, 0)', border: 'none'}}>
-              <Button variant="dark">Sign Up</Button>{' '}
+              <Button variant="dark"><Link style={{color: '#fff'}} to="/register">Sign Up</Link></Button>{' '}
               </Card>
             </CardGroup>
             <Card className='space-card'>
