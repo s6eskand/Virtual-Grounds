@@ -1,4 +1,4 @@
-
+/* global BigInt */
 import React, { useState } from 'react';
 
 import Button from 'react-bootstrap/Button';
@@ -6,18 +6,41 @@ import Card from 'react-bootstrap/Card';
 import Form from "react-bootstrap/Form";
 import map from '../img/map.png';
 
+//redux
+import withShipment from '../withShipment';
+import {
+  postUserProfile
+} from '../redux/actions/userProfile';
+import {
+  ownerSelector
+} from '../redux/selectors/auth';
+
 function ProfileEdit(props) {
   const [school, setSchool] = useState("");
   const [term, setTerm] = useState("");
   const [term_type, setTermType] = useState("");
   const [company, setCompany] = useState("");
-  const [status, setStatus] = useState("");
+  const [status, setStatus] = useState(false);
   const [bio, setBio] = useState("");
   const [interests, setInterets] = useState("");
 
   function handleSubmit(event) {
     event.preventDefault();
+    const interestsArr = [...interests.split(',').map(ele => ele.trim())]
+    const profileInfo = {
+      school: school,
+      term: term,
+      term_type: term_type,
+      company: company,
+      job_search_status: status,
+      biography: bio,
+      interests: interestsArr,
+      owner: props.owner
+    }
+    console.log(profileInfo)
+    props.postUserProfile(profileInfo);
   }
+  
     return(
       <div>
       <Card.Img src= {map} alt="Card image" style={{backgroundColor: 'white'}} height='100%' width='100%'/>
@@ -28,7 +51,7 @@ function ProfileEdit(props) {
     <form class="form-horizontal" >
         <div class="panel panel-default" >
           <div class="panel-body text-center" style={{marginTop:"30px" , backgroundColor: 'white'}}>
-            <h3>Create Profile</h3>
+            <h3>Edit Profile</h3>
            
           </div>
 
@@ -41,7 +64,7 @@ function ProfileEdit(props) {
         <div class="panel-body">
           <div class="form-group">
 
-          <Form onSubmit={handleSubmit}>
+          <Form>
           <Form.Group size="lg" controlId="school" className="text-left">
           <Form.Label>School</Form.Label>
           <Form.Control
@@ -98,18 +121,10 @@ function ProfileEdit(props) {
         </Form.Group >
 
         <Form.Group size="lg" controlId="status" className="text-left">
-          <Form.Label>Job Search Status</Form.Label>
-          <Form.Control 
-            as="select" 
-            defaultValue="Select"             
-    
-            type="status"
-            value={status} onChange={(e) => setStatus(e.target.value)}>
-            <option>Searching</option>
-            <option>Employed</option>
-            <option>Found Employment</option>
-            <option>Not Searching</option>
-          </Form.Control>
+          <Form.Label>Searching for Job?</Form.Label>
+          <Form.Check
+            value={status} onClick={(e) => setStatus(!status)} />
+          {/* </Form.Control> */}
         </Form.Group >
         
         <Form.Group size="lg" controlId="bio" className="text-left">
@@ -132,7 +147,7 @@ function ProfileEdit(props) {
             onChange={(e) => setInterets(e.target.value)}
           />
         </Form.Group >
-        <Button block size="md" type="save"  style={{width:'180px', marginLeft:"30%"}} variant="outline-dark">
+        <Button onClick={handleSubmit} block size="md" type="save"  style={{width:'180px', marginLeft:"30%"}} variant="outline-dark">
           Save
         </Button>
         </Form>
@@ -153,5 +168,16 @@ function ProfileEdit(props) {
         )
     }
     
+
+const mapStateToProps = (state) => ({
+  owner: ownerSelector(state),
+})
+
+const actionCreators = {
+  postUserProfile
+}
     
-export default ProfileEdit;
+export default withShipment({
+  mapStateToProps,
+  actionCreators,
+}, ProfileEdit);

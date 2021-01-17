@@ -1,8 +1,10 @@
 // sagas
 import authSagas from "./auth"
+import userProfileSagas from './userProfile'
 
 const sagas = [
     authSagas,
+    userProfileSagas
 ];
 
 const registerSagas = (middleware) => {

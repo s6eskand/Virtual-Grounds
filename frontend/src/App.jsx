@@ -28,10 +28,7 @@ function App() {
       <Provider store={store}>
             <PersistGate persistor={persistor} loading={null}>
                 <BrowserRouter>
-                  <Navbar1 />
-                  <Switch>
-                    <Base />
-                  </Switch>
+                  <Base />
                 </BrowserRouter>
             </PersistGate>
         </Provider>

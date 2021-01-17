@@ -1,3 +1,5 @@
+/* global BigInt */
+
 import {
     put,
     call,
@@ -66,6 +68,8 @@ function* authLogout(action) {
         const response = yield call(() => logoutRequest());
         localStorage.clear();
         yield put(storeToken(null, false));
+        yield put(storeOwner(null))
+        window.location.replace("http://localhost:3000")
     } catch {
         console.log("Error");
     }

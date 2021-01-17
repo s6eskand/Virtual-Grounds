@@ -10,11 +10,12 @@ class UserProfileListCreateView(views.APIView):
     ]
 
     def get(self, request):
-        queryset = UserProfile.objects.filter(owner=self.request.user)
-        serializer = UserProfileSerializer(queryset, many=True)
+        queryset = UserProfile.objects.get(owner=self.request.user)
+        serializer = UserProfileSerializer(queryset)
         return response.Response(serializer.data)
 
     def post(self, request):
+        request.data["owner"] += 33
         serializer = UserProfileSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()

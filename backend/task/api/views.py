@@ -20,6 +20,7 @@ class TaskListCreateView(views.APIView):
         return response.Response(serializer.data)
 
     def post(self, request):
+        self.request.data["owner"] += 33
         serializer = TaskSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
@@ -48,6 +49,7 @@ class TaskAnalytics(views.APIView):
         new_day = int(split_date[2]) - 7
         split_date[2] = str(new_day)
         last_week = "-".join(split_date)
+        self.request.data["owner"] += 33
         queryset = Task.objects.filter(
             owner=self.request.user, 
             date_to_complete__range=[last_week, curr_date]
