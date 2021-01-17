@@ -1,16 +1,16 @@
 import React, { useState } from "react";
 import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
 import uuid from "uuid/dist/v4";
-
-
+import map from '../img/map.png';
+import Card from "react-bootstrap/esm/Card";
 
 const itemsFromBackend = [
-  { id: uuid(), content: "Create wireframe" },
-  { id: uuid(), content: "Research frameworks" },
-  { id: uuid(), content: "Configure database" },
-  { id: uuid(), content: "Build frontend" },
-  { id: uuid(), content: "Add API calls" },
-  { id: uuid(), content: "Connect to database" }
+  { id: uuid(), content: "Create Wireframe for Hack The North 2020++" },
+  { id: uuid(), content: "Research Frameworks" },
+  { id: uuid(), content: "Configure Database" },
+  { id: uuid(), content: "Build Frontend" },
+  { id: uuid(), content: "Add API Calls" },
+  { id: uuid(), content: "Connect to Database" }
 ];
 
 const columnsFromBackend = {
@@ -72,10 +72,14 @@ const onDragEnd = (result, columns, setColumns) => {
 function Board() {
   const [columns, setColumns] = useState(columnsFromBackend);
   return (
-    <div style={{ display: "flex", justifyContent: "center", height: "100%"}}>
+    <div>
+    <Card.Img src= {map} alt="Card image" style={{backgroundColor: 'white'}} height='100%' width='100%'/>
+    <Card.ImgOverlay>
+    <div style={{ display: "flex", justifyContent: "center", height: "100%", marginTop:"100px"}}>
       <DragDropContext
         onDragEnd={result => onDragEnd(result, columns, setColumns)}
       >
+          
         {Object.entries(columns).map(([columnId, column], index) => {
           return (
             <div
@@ -86,7 +90,7 @@ function Board() {
               }}
               key={columnId}
             >
-              <h3>{column.name}</h3>
+              <h3 style={{fontWeight:'bold', color:"black"}} >{column.name}</h3>
               <div style={{ margin: 8 }}>
                 <Droppable droppableId={columnId} key={columnId}>
                   {(provided, snapshot) => {
@@ -100,7 +104,8 @@ function Board() {
                             : "lightgrey",
                           padding: 4,
                           width: 300,
-                          minHeight: 500
+                          minHeight: 500,
+                          borderRadius: '7px'
                         }}
                       >
                         {column.items.map((item, index) => {
@@ -124,7 +129,7 @@ function Board() {
                                       minHeight: "50px",
                                       backgroundColor: snapshot.isDragging
                                         ? "#263B4A"
-                                        : "#fcae00",
+                                        : "#0a4968",
                                       color: "white",
                                       ...provided.draggableProps.style
                                     }}
@@ -146,6 +151,8 @@ function Board() {
           );
         })}
       </DragDropContext>
+    </div>
+    </Card.ImgOverlay>
     </div>
   );
 }

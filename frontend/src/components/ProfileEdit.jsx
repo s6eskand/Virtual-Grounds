@@ -55,7 +55,7 @@ function ProfileEdit(props) {
           <Form.Control 
             as="select" 
             defaultValue="Select"             
-            autoFocus
+     
             type="term"
             value={term} onChange={(e) => setTerm(e.target.value)}>
             <option>1A</option>
@@ -75,7 +75,7 @@ function ProfileEdit(props) {
           <Form.Control 
             as="select" 
             defaultValue="Select"             
-            autoFocus
+      
             type="term_type"
             value={term_type} onChange={(e) => setTermType(e.target.value)}>
             <option>School</option>
@@ -87,7 +87,7 @@ function ProfileEdit(props) {
         <Form.Group size="lg" controlId="company" className="text-left">
           <Form.Label>Company</Form.Label>
           <Form.Control
-            autoFocus
+     
             type="company"
             value={company}
             onChange={(e) => setCompany(e.target.value)}
@@ -99,7 +99,7 @@ function ProfileEdit(props) {
           <Form.Control 
             as="select" 
             defaultValue="Select"             
-            autoFocus
+    
             type="status"
             value={status} onChange={(e) => setStatus(e.target.value)}>
             <option>Searching</option>
@@ -112,7 +112,7 @@ function ProfileEdit(props) {
         <Form.Group size="lg" controlId="bio" className="text-left">
           <Form.Label>Bio</Form.Label>
           <Form.Control
-            autoFocus
+           
             type="bio"
             value={bio}
             onChange={(e) => setBio(e.target.value)}
@@ -123,7 +123,7 @@ function ProfileEdit(props) {
         <Form.Group size="lg" controlId="interests" className="text-left">
           <Form.Label>Interests (separated by comma)</Form.Label>
           <Form.Control
-            autoFocus
+            
             type="interests"
             value={interests}
             onChange={(e) => setInterets(e.target.value)}
