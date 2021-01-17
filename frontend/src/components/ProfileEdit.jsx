@@ -1,9 +1,10 @@
 
 import React, { useState } from 'react';
-import headshot from '../img/headshot.png';
+
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Form from "react-bootstrap/Form";
+import map from '../img/map.png';
 
 function ProfileEdit(props) {
   const [school, setSchool] = useState("");
@@ -18,18 +19,20 @@ function ProfileEdit(props) {
     event.preventDefault();
   }
     return(
-        
-<div className="container" style={{paddingLeft:"200px"}}>
+      <div>
+      <Card.Img src= {map} alt="Card image" style={{backgroundColor: 'white'}} height='100%' width='100%'/>
+      <Card.ImgOverlay>
+<div className="container" style={{paddingLeft:"200px", backgroundColor: 'white', width:"900px"}}>
 <div class="row">
   <div class="col-xs-12 col-sm-9">
     <form class="form-horizontal">
         <div class="panel panel-default">
           <div class="panel-body text-center" style={{marginTop:"100px"}}>
-           <img src={headshot} class="img-circle profile-avatar" alt="User avatar" width='200px'></img>
+            <h3>Create Profile</h3>
            
           </div>
 
-          <Button class="panel-body text-center button-center" style={{width:'180px', marginLeft:"37%", marginTop:"5px"}} variant="outline-dark">Upload New Photo</Button>{' '}
+          
         </div>
       <div class="panel panel-default">
         <div class="panel-heading">
@@ -129,7 +132,7 @@ function ProfileEdit(props) {
             onChange={(e) => setInterets(e.target.value)}
           />
         </Form.Group >
-        <Button block size="md" type="save"  style={{width:'180px', marginLeft:"39%"}} variant="outline-dark">
+        <Button block size="md" type="save"  style={{width:'180px', marginLeft:"30%"}} variant="outline-dark">
           Save
         </Button>
         </Form>
@@ -145,7 +148,8 @@ function ProfileEdit(props) {
 </div>
 
 </div>
-
+</Card.ImgOverlay>
+</div>
         )
     }
     

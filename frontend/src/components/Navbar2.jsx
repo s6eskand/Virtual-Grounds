@@ -19,8 +19,27 @@ function Navbar2(props) {
         <Navbar.Collapse id="basic-navbar-nav" className="text-center" style={{marginLeft:"225px"}} >
           <Nav className="justify-content-center" fill='true'style={{width:"800px"}}>
           <Nav.Item>
+            <Nav.Link href="#home">Home</Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
             <Nav.Link href="#home">Dashboard</Nav.Link>
           </Nav.Item>
+          <Nav.Item>
+            <Nav.Link href="#calendar">Calendar</Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link href="#board">Board</Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link href="#productivity">Productivity</Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link href="#chat">Chat</Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link href="#discover">Discover</Nav.Link>
+          </Nav.Item>
+
           <Nav.Item>
             <Nav.Link onClick={props.authLogout}>Logout</Nav.Link>
           </Nav.Item>
@@ -29,6 +48,7 @@ function Navbar2(props) {
         </Navbar.Collapse>
       </Navbar>
     </Nav>
+    
     )
 }
 
