@@ -4,14 +4,14 @@ import Navbar2 from '../components/Navbar2';
 import Background from '../components/Background';
 import Features from '../components/Features';
 import Pricing from '../components/Pricing';
-import ProfileEdit from '../components/ProfileEdit';
-import ProfileDone from '../components/ProfileDone';
+import ChatBox from '../components/ChatBox';
+
 function Profile(){
 
     return(
         <div>
             <Navbar2/>
-            <ProfileDone/>
+            <ChatBox/>
             
         </div>
     )
