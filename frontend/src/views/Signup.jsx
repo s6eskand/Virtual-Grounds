@@ -6,9 +6,15 @@ import "./Login.css";
 import Card from 'react-bootstrap/Card';
 import map from '../img/map.png';
 
+// redux
+import withShipment from '../withShipment';
+import {
+  authRegister
+} from '../redux/actions/auth';
 
-export default function Signup() {
+function Signup(props) {
   const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   function validateForm() {
@@ -17,6 +23,12 @@ export default function Signup() {
 
   function handleSubmit(event) {
     event.preventDefault();
+    const registerInfo = {
+      username: username,
+      email: email,
+      password: password
+    }
+    props.authRegister(registerInfo)
   }
 
   return (
@@ -48,6 +60,15 @@ export default function Signup() {
             onChange={(e) => setUsername(e.target.value)}
           />
         </Form.Group >
+        <Form.Group size="lg" controlId="email" className="text-left">
+          
+          <Form.Label>Email</Form.Label>
+          <Form.Control
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+        </Form.Group >
         <Form.Group size="lg" controlId="password" className="text-left">
           <Form.Label>Password</Form.Label>
           <Form.Control
@@ -56,7 +77,7 @@ export default function Signup() {
             onChange={(e) => setPassword(e.target.value)}
           />
         </Form.Group>
-        <Button block size="lg" type="submit" disabled={!validateForm()}>
+        <Button block size="lg" type="submit" disabled={!validateForm()} onClick={handleSubmit}>
           Sign Up
         </Button>
       </Form>
@@ -69,3 +90,16 @@ export default function Signup() {
     </div>
   );
 }
+
+const mapStateToProps = (state) => ({
+
+})
+
+const actionCreators = {
+  authRegister,
+}
+
+export default withShipment({
+  mapStateToProps,
+  actionCreators
+}, Signup)
