@@ -11,14 +11,19 @@ import map from '../img/map.png'
 function Features(props) {
 
     return(
+      <div>
+      <Card.Img src= {map} alt="Card image" style={{backgroundColor: 'white'}} height='100%' width='100%'/>
+      <Card.ImgOverlay>
         <div className="container">
+                  
+        
         <section id="features" class="section services-section gray-bg" className="text-center">
       
         <div class="container">
           <div class="row">
             <div class="col-12">
               <div class="section-title-01">
-                <h3 class="font-alt">Features</h3>
+    
               </div>
             </div>
           </div> 
@@ -89,8 +94,10 @@ function Features(props) {
           </div>
         
       </section>
-      </div>
 
+      </div>
+      </Card.ImgOverlay>
+      </div>
         )
     }
     

@@ -4,7 +4,8 @@ import cal from '../img/cal.png';
 import gaming from '../img/gaming.png';
 import list from '../img/list.png';
 import voice from '../img/voice.png';
-
+import Card from "react-bootstrap/esm/Card";
+import map from '../img/map.png'
 
 function Pricing(props) {
     const [state, setState] = useState({
@@ -12,14 +13,14 @@ function Pricing(props) {
     })
 
     return(
-
-        
+        <div>
+      <Card.Img src= {map} alt="Card image" style={{backgroundColor: 'white'}} height='100%' width='100%'/>
+      <Card.ImgOverlay>
         <section id="pricing">
       <div className="container">
         <div className="row">
           <div className="col-12">
             <div className="section-title-01">
-              <h3 className="font-alt">Pricing</h3>
             </div>
           </div>
         </div> 
@@ -118,7 +119,8 @@ function Pricing(props) {
         </div>
         <div style={{paddingTop:"15vh"}}></div>
       </section>
-      
+      </Card.ImgOverlay>
+      </div>
         )
     }
     
