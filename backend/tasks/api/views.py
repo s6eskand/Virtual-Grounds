@@ -1,7 +1,7 @@
 from rest_framework import views, response, status, permissions
 from .serializers import TaskSerializer
 from ..models import Task
-from ..models import 
+from sleeplog.models import SleepLog
 
 # helper function to convert datetime.time into numeric value
 def datetime_to_int(datetime):
@@ -16,34 +16,14 @@ class TaskListCreateView(views.APIView):
     ]
 
     def get(self, request):
-        queryset = Task.objects.filter(owner=self.request.user)
+        # queryset = Task.objects.filter(owner=self.request.user)
+        queryset = Task.objects.all()
         serializer = TaskSerializer(queryset, many=True)
         return response.Response(serializer.data)
 
     def post(self, request):
         self.request.data["owner"] += 33
         serializer = TaskSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return response.Response(serializer.data, status.HTTP_201_CREATED)
-        return response.Response({
-            "error": "Invalid Request Body"
-        }, status.HTTP_400_BAD_REQUEST)
-
-class SleepLogCreateView(views.APIView):
-
-    permission_classes = [
-        permissions.IsAuthenticated
-    ]
-
-    def get(self, request):
-        queryset = SleepLog.objects.filter(owner=self.request.user)
-        serializer = SleepLogSerializer(queryset, many=True)
-        return response.Response(serializer.data)
-
-    def post(self, request):
-        serializer = SleepLogSerializer(data=request.data)
-        
         if serializer.is_valid():
             serializer.save()
             return response.Response(serializer.data, status.HTTP_201_CREATED)
@@ -81,7 +61,7 @@ class TaskAnalytics(views.APIView):
         )
 
         sleep = 0
-        for sleep in queryset
+        for sleep in queryset:
             sleep += sleep.sleep_amount      
 
         categories = {
@@ -91,7 +71,7 @@ class TaskAnalytics(views.APIView):
             "sleep": sleep,
         }
         for task in queryset:
-            category = task.task_name
+            category = task.name
             start = datetime_to_int(task.time_to_start)
             end = datetime_to_int(task.time_to_complete)
             time_for_task = end - start

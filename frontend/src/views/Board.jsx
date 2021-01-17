@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
 import uuid from "uuid/dist/v4";
 import map from '../img/map.png';
@@ -8,33 +8,39 @@ import Button from 'react-bootstrap/Button';
 import Popup from "./Popup";
 import Form from "react-bootstrap/Form";
 import Modal from 'react-bootstrap/Modal';
-import { setPriority } from "os";
 
-const itemsFromBackend = [
-  { id: uuid(), content: "Create Wireframe for Hack The North 2020++" },
-  { id: uuid(), content: "Research Frameworks" },
-  { id: uuid(), content: "Configure Database" },
-  { id: uuid(), content: "Build Frontend" },
-  { id: uuid(), content: "Add API Calls" },
-  { id: uuid(), content: "Connect to Database" }
-];
+// redux
+import withShipment from '../withShipment';
+import {
+  taskSelector 
+} from '../redux/selectors/tasks';
+import {
+  ownerSelector
+} from '../redux/selectors/auth';
+import {
+  getUserTasks
+} from '../redux/actions/tasks';
 
 const columnsFromBackend = {
   [uuid()]: {
     name: "Requested",
-    items: itemsFromBackend
+    items: [],
+    tag: "REQUESTED"
   },
   [uuid()]: {
     name: "To do",
-    items: []
+    items: [],
+    tag: "TO_DO"
   },
   [uuid()]: {
     name: "In Progress",
-    items: []
+    items: [],
+    tag: "IN_PROGRESS"
   },
   [uuid()]: {
     name: "Done",
-    items: []
+    items: [],
+    tag: "COMPLETED"
   }
 };
 
@@ -79,7 +85,7 @@ const onDragEnd = (result, columns, setColumns) => {
 
 
 function Board(props) {
-  const [columns, setColumns] = useState(columnsFromBackend);
+  const [columns, setColumns] = useState(props.tasks);
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -93,6 +99,12 @@ function Board(props) {
   const [time_to_complete, setCompleteTime] = useState("");
   const [date_to_complete, setCompleteDate] = useState("");
 
+  useEffect(() => {
+    props.getUserTasks()
+  }, [props])
+
+
+  console.log(Object.entries(columns))
   return (
     <div>
     <Card.Img src= {map} alt="Card image" style={{backgroundColor: 'white'}} height='100%' width='100%'/>
@@ -268,7 +280,9 @@ function Board(props) {
                                       ...provided.draggableProps.style
                                     }}
                                   >
-                                    {item.content}
+                                    {item.name} <br/>
+                                    {item.description} <br/>
+                                    {item.time_to_start} - {item.time_to_complete}
                                   </div>
                                 );
                               }}
@@ -295,4 +309,16 @@ function Board(props) {
   );
 }
 
-export default Board;
+const mapStateToProps = (state) => ({
+  owner: ownerSelector(state),
+  tasks: taskSelector(state),
+})
+
+const actionCreators = {
+  getUserTasks,
+}
+
+export default withShipment({
+  mapStateToProps,
+  actionCreators
+}, Board);

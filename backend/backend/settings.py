@@ -45,7 +45,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'authentication',
     'userprofile',
-    'task',
+    'tasks',
     'sleeplog',
 ]
 
