@@ -6,4 +6,6 @@ urlpatterns = [
     path('auth/', include('authentication.api.urls')),
     path('userprofile/', include('userprofile.api.urls')),
     path('chat/', include('chat.api.urls', namespace='chat')),
+    path('tasks/', include('tasks.api.urls')),
+    path('sleep/', include('sleeplog.api.urls')),
 ]

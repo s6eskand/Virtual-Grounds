@@ -46,8 +46,9 @@ INSTALLED_APPS = [
     'channels',
     'authentication',
     'userprofile',
-    'task',
     'chat',
+    'tasks',
+    'sleeplog',
 ]
 
 MIDDLEWARE = [
@@ -154,5 +155,4 @@ CORS_ORIGIN_ALLOW_ALL = True
 CORS_ALLOW_CREDENTIALS = True
 CORS_ORIGIN_WHITELIST = [
     'http://localhost:3000',
-    'https://music-rating.netlify.app'
 ]
