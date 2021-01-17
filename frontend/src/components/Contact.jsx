@@ -1,5 +1,8 @@
 
 import React, { useState } from 'react';
+import Card from "react-bootstrap/esm/Card";
+import map from '../img/map.png'
+
 
 function Contact(props) {
     const [state, setState] = useState({
@@ -7,12 +10,14 @@ function Contact(props) {
     })
 
     return(
+      <div>
+      <Card.Img src= {map} alt="Card image" style={{backgroundColor: 'white'}} height='100%' width='100%'/>
+      <Card.ImgOverlay>
 <section id="contact" class="section gray-bg">
 <div class="container">
         <div class="row">
           <div class="col-12">
-            <div class="section-title-01">
-              <h3 class="font-alt">Contact Us</h3>
+            <div class="section-title-01" style={{marginTop:"300px"}}>
             </div>
           </div>
         </div> 
@@ -86,8 +91,8 @@ function Contact(props) {
     <div style={{paddingTop:"40vh"}}></div>
  
     </section>
-
-
+    </Card.ImgOverlay>
+    </div>
         )
     }
     
