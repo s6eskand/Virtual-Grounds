@@ -1,4 +1,5 @@
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 // redux
 import {
@@ -10,7 +11,8 @@ import { PersistGate } from 'redux-persist/integration/react';
 import { BrowserRouter } from "react-router-dom";
 
 // custom components
-import Test from './components/Test';
+
+import Base from './views/Base';
 
 function App() {
   return (
@@ -18,7 +20,7 @@ function App() {
       <Provider store={store}>
             <PersistGate persistor={persistor} loading={null}>
                 <BrowserRouter>
-                  <Test title="hello"/>
+                  <Base />
                 </BrowserRouter>
             </PersistGate>
         </Provider>

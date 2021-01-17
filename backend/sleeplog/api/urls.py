@@ -4,5 +4,5 @@ from .views import (
 from django.urls import path
 
 urlpatterns = [
-    path('sleeplog', SleepLogCreateView.as_view()),
+    path('log', SleepLogCreateView.as_view()),
 ]

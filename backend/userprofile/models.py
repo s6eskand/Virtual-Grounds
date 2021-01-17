@@ -10,7 +10,7 @@ class UserProfile(models.Model):
     company = models.CharField(max_length=300, null=True)
     job_search_status = models.BooleanField(default=False)
     biography = models.CharField(max_length=350, blank=True, null=True)
-    languages = ArrayField(models.CharField(max_length=100), blank=True)
+    interests = ArrayField(models.CharField(max_length=100), blank=True)
     owner = models.ForeignKey(
         User,
         related_name="profile",
