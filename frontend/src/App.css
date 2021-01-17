@@ -60,4 +60,13 @@ a {
   }
 
 
-  
+.test5 {
+    text-align:'right';
+    margin-left: 600;
+    border-radius: '3px';
+    padding: 10;
+    margin: "0 0 8px 0";
+    min-height: "50px";
+    background-color: "#263B4A";
+    color: "white";
+}
