@@ -15,7 +15,7 @@ import { BrowserRouter } from "react-router-dom";
 import Landing from './views/Landing';
 import Login from './views/Login';
 import Signup from './views/Signup';
-
+import Profile from './views/Profile';
 function App() {
   return (
     <div> 

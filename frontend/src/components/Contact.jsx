@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 
-function Features(props) {
+function Contact(props) {
     const [state, setState] = useState({
         counter: 0,
     })
@@ -92,4 +92,4 @@ function Features(props) {
     }
     
     
-    export default Features;
+    export default Contact;

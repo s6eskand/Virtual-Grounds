@@ -1,9 +1,10 @@
 import "./Features.css";
 import React, { useState } from 'react';
 import cal from '../img/cal.png';
-import gaming from '../img/gaming.png';
 import list from '../img/list.png';
-import voice from '../img/voice.png';
+import prod from '../img/prod.png';
+import job from '../img/job.png';
+import disc from '../img/disc.png';
 
 
 function Features(props) {
@@ -53,8 +54,8 @@ function Features(props) {
             <div class="feature-box-02">
               <i class="icon theme-bg ti-layout"></i>
               <div class="feature-content">
-              <img src={voice} style={{width: '8vw', alignContent:"center", paddingBottom:"50px"}}></img>
-              <h4>Voice Channels</h4>
+              <img src={prod} style={{width: '8vw', alignContent:"center", paddingBottom:"50px"}}></img>
+              <h4>Productivity Analytics</h4>
                 <p>Voice Channels lets users to not rlly sure yet but here</p>
                 
               </div>
@@ -65,8 +66,8 @@ function Features(props) {
             <div class="feature-box-02">
               <i class="icon theme-bg ti-camera"></i>
               <div class="feature-content">
-              <img src={gaming} style={{width: '8vw', alignContent:"center", paddingBottom:"50px"}}></img>
-              <h4>Game Rooms</h4>
+              <img src={job} style={{width: '8vw', alignContent:"center", paddingBottom:"50px"}}></img>
+              <h4>Job Search</h4>
                 <p>Game Rooms lets you not rlly sure yet but play games</p>
                 
               </div>
@@ -75,20 +76,9 @@ function Features(props) {
 
           <div class="col-12 col-md-6 col-lg-4">
             <div class="feature-box-02">
-              <i class="icon theme-bg ti-brush-alt"></i>
-              <div class="feature-content">
-              <img src={cal} style={{width: '8vw', alignContent:"center", paddingBottom:"50px"}}></img>
-              <h4>Job Search</h4>
-                <p>Job Search is a feature that currates job postings from LinkedIn, WaterlooWorks and more</p>
-              </div>
-            </div> 
-          </div> 
-
-          <div class="col-12 col-md-6 col-lg-4">
-            <div class="feature-box-02">
               <i class="icon theme-bg ti-world"></i>
               <div class="feature-content">
-              <img src={cal} style={{width: '8vw', alignContent:"center", paddingBottom:"50px"}}></img>
+              <img src={disc} style={{width: '8vw', alignContent:"center", paddingBottom:"50px"}}></img>
               <h4>Discovery Mode</h4>
                 <p>Discovery Mode lets users discover new things to learn based on certain interests and friend interests </p>
                 
