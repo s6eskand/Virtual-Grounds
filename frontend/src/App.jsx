@@ -20,7 +20,7 @@ import Login from './views/Login';
 import Signup from './views/Signup';
 import Profile from './views/Profile';
 import Board from './views/Board';
-
+import Base from './views/Base';
 
 function App() {
   return (
@@ -28,9 +28,9 @@ function App() {
       <Provider store={store}>
             <PersistGate persistor={persistor} loading={null}>
                 <BrowserRouter>
-                  <Navbar3 />
+                  <Navbar1 />
                   <Switch>
-                    <Board />
+                    <Base />
                   </Switch>
                 </BrowserRouter>
             </PersistGate>
