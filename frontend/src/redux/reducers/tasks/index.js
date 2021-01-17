@@ -1,10 +1,12 @@
 import {
-    STORE_USER_TASKS
+    STORE_USER_TASKS,
+    STORE_TASK_ANALYTICS
 } from '../../constants/tasks';
 import uuid from 'uuid/dist/v4';
 
 const initialState = {
-    tasks: []
+    tasks: [],
+    analytics: {}
 }
 
 const columnsFromBackend = {
@@ -32,7 +34,7 @@ const columnsFromBackend = {
 
 const storeTasks = (tasks) => {
     const keys = Object.keys(columnsFromBackend)
-        
+
     tasks.forEach(task => {
         keys.forEach(key => {
             if (task.status === columnsFromBackend[key].tag) {
@@ -50,6 +52,11 @@ const tasks = (state = initialState, action) => {
             return {
                 ...state,
                 tasks: storeTasks(action.tasks)
+            }
+        case STORE_TASK_ANALYTICS:
+            return {
+                ...state,
+                analytics: {...action.analytics}
             }
         default:
             return state

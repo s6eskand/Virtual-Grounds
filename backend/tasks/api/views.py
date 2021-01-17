@@ -50,7 +50,6 @@ class TaskAnalytics(views.APIView):
         new_day = int(split_date[2]) - 7
         split_date[2] = str(new_day)
         last_week = "-".join(split_date)
-        self.request.data["owner"] += 33
         queryset = Task.objects.filter(
             owner=self.request.user, 
             date_to_complete__range=[last_week, curr_date]
@@ -61,8 +60,8 @@ class TaskAnalytics(views.APIView):
         )
 
         sleep = 0
-        for sleep in queryset:
-            sleep += sleep.sleep_amount      
+        for sleepLog in sleepqueryset:
+            sleep += sleepLog.sleep_amount      
 
         categories = {
             "total": 0,
@@ -74,7 +73,7 @@ class TaskAnalytics(views.APIView):
             category = task.name
             start = datetime_to_int(task.time_to_start)
             end = datetime_to_int(task.time_to_complete)
-            time_for_task = end - start
+            time_for_task = round(end - start, 2)
             categories["total"] += time_for_task
             if task.status == "COMPLETED":
                 categories["total_completed"] += time_for_task
@@ -87,6 +86,7 @@ class TaskAnalytics(views.APIView):
                 categories[category] = time_for_task
 
         categories["available_down_time"] = 168 - categories["total"] - sleep
+        print(categories)
 
         return response.Response(
             categories, status=status.HTTP_200_OK

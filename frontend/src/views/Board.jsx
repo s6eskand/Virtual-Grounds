@@ -8,6 +8,7 @@ import Button from 'react-bootstrap/Button';
 import Popup from "./Popup";
 import Form from "react-bootstrap/Form";
 import Modal from 'react-bootstrap/Modal';
+import { useHistory } from 'react-router-dom';
 
 // redux
 import withShipment from '../withShipment';
@@ -18,7 +19,8 @@ import {
   ownerSelector
 } from '../redux/selectors/auth';
 import {
-  getUserTasks
+  getUserTasks,
+  getTaskAnalytics,
 } from '../redux/actions/tasks';
 
 const columnsFromBackend = {
@@ -85,6 +87,7 @@ const onDragEnd = (result, columns, setColumns) => {
 
 
 function Board(props) {
+  const history = useHistory();
   const [columns, setColumns] = useState(props.tasks);
   const [show, setShow] = useState(false);
 
@@ -103,8 +106,15 @@ function Board(props) {
     props.getUserTasks()
   }, [props])
 
+  const runAnalytics = () => {
 
-  console.log(Object.entries(columns))
+    const date = {
+      date: "2021-01-17"
+    }
+    props.getTaskAnalytics(date)
+    setTimeout(() => history.push('/analytics'), 1000)
+  }
+
   return (
     <div>
     <Card.Img src= {map} alt="Card image" style={{backgroundColor: 'white'}} height='100%' width='100%'/>
@@ -218,7 +228,7 @@ function Board(props) {
 
 
 
-        <button className="btn btn-primary">Run Analytics</button>
+        <button onClick={runAnalytics} className="btn btn-primary">Run Analytics</button>
       </div>
     </div>
     <div style={{ display: "flex", justifyContent: "center", height: "100%", marginTop:"10px" }}>
@@ -316,6 +326,7 @@ const mapStateToProps = (state) => ({
 
 const actionCreators = {
   getUserTasks,
+  getTaskAnalytics,
 }
 
 export default withShipment({
