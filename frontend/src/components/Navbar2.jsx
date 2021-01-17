@@ -5,30 +5,22 @@ import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 
 
-function Navbar2(props) {
+function Navbar1(props) {
     const [state, setState] = useState({
         counter: 0,
     })
 
     return(
-      <Nav className="justify-content-center" activeKey="#home" id="home">
-        <Navbar bg="light" expand="lg" fixed="top">
+      <Nav className="justify-content-center" activeKey="#home" id="home" >
+        <Navbar bg="light" expand="lg" fixed="top" style={{width:"100%"}} >
         <Navbar.Brand href="#home">Virtual Grounds</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav" className="justify-content-center">
-          <Nav className="justify-content-center" fill='true'>
+        <Navbar.Collapse id="basic-navbar-nav" className="text-center" style={{marginLeft:"250px"}} >
+          <Nav className="justify-content-center" fill='true'style={{width:"800px"}}>
           <Nav.Item>
-            <Nav.Link href="#home">Home</Nav.Link>
+            <Nav.Link href="#home">Dashboard</Nav.Link>
           </Nav.Item>
-          <Nav.Item>
-            <Nav.Link href="#features">Profile</Nav.Link>
-          </Nav.Item>
-          <Nav.Item>
-            <Nav.Link href="#pricing">Calendar</Nav.Link>
-          </Nav.Item>
-          <Nav.Item>
-            <Nav.Link href="#contact">Productivity</Nav.Link>
-          </Nav.Item>
+
           </Nav>
         </Navbar.Collapse>
       </Navbar>
@@ -37,4 +29,4 @@ function Navbar2(props) {
 }
 
 
-export default Navbar2;
+export default Navbar1;
