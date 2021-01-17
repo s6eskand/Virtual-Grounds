@@ -34,29 +34,28 @@ function Pricing(props) {
   
             <div className="col-lg-4 mb-5 mb-lg-0">
               <div className="bg-white p-5 rounded-lg shadow">
-                <h1 className="h6 text-uppercase font-weight-bold mb-4">Basic</h1>
-                <h2 className="h1 font-weight-bold">$199<span className="text-small font-weight-normal ml-2">/ month</span></h2>
+                <h1 className="h6 text-uppercase font-weight-bold mb-4">Free</h1>
+                <h2 className="h1 font-weight-bold">$0.00<span className="text-small font-weight-normal ml-2">/ month</span></h2>
       
                 <div className="custom-separator my-4 mx-auto bg-primary"></div>
       
                 <ul className="list-unstyled my-5 text-small text-left">
+
                   <li className="mb-3">
-                    <i className="fa fa-check mr-2 text-primary"></i> Lorem ipsum dolor sit amet</li>
+                    <i className="fa fa-check mr-2 text-primary"></i>Interactive Calendars</li>
                   <li className="mb-3">
-                    <i className="fa fa-check mr-2 text-primary"></i> Sed ut perspiciatis</li>
-                  <li className="mb-3">
-                    <i className="fa fa-check mr-2 text-primary"></i> At vero eos et accusamus</li>
+                    <i className="fa fa-check mr-2 text-primary"></i>Planning Boards</li>
                   <li className="mb-3 text-muted">
                     <i className="fa fa-times mr-2"></i>
-                    <del>Nam libero tempore</del>
+                    <del>Productivity Analytics</del>
                   </li>
                   <li className="mb-3 text-muted">
                     <i className="fa fa-times mr-2"></i>
-                    <del>Sed ut perspiciatis</del>
+                    <del>Discovery Mode</del>
                   </li>
                   <li className="mb-3 text-muted">
                     <i className="fa fa-times mr-2"></i>
-                    <del>Sed ut perspiciatis</del>
+                    <del> Job Search</del>
                   </li>
                 </ul>
                 <a href="#" className="btn btn-primary btn-block p-2 shadow rounded-pill">Subscribe</a>
@@ -65,25 +64,26 @@ function Pricing(props) {
 
             <div className="col-lg-4 mb-5 mb-lg-0">
               <div className="bg-white p-5 rounded-lg shadow">
-                <h1 className="h6 text-uppercase font-weight-bold mb-4">Pro</h1>
-                <h2 className="h1 font-weight-bold">$399<span className="text-small font-weight-normal ml-2">/ month</span></h2>
+                <h1 className="h6 text-uppercase font-weight-bold mb-4">Basic</h1>
+                <h2 className="h1 font-weight-bold">$4.99<span className="text-small font-weight-normal ml-2">/ month</span></h2>
       
                 <div className="custom-separator my-4 mx-auto bg-primary"></div>
       
                 <ul className="list-unstyled my-5 text-small text-left font-weight-normal">
                   <li className="mb-3">
-                    <i className="fa fa-check mr-2 text-primary"></i> Lorem ipsum dolor sit amet</li>
+                    <i className="fa fa-check mr-2 text-primary"></i> Interactive Calendars</li>
                   <li className="mb-3">
-                    <i className="fa fa-check mr-2 text-primary"></i> Sed ut perspiciatis</li>
+                    <i className="fa fa-check mr-2 text-primary"></i> Planning Boards</li>
                   <li className="mb-3">
-                    <i className="fa fa-check mr-2 text-primary"></i> At vero eos et accusamus</li>
-                  <li className="mb-3">
-                    <i className="fa fa-check mr-2 text-primary"></i> Nam libero tempore</li>
-                  <li className="mb-3">
-                    <i className="fa fa-check mr-2 text-primary"></i> Sed ut perspiciatis</li>
+                    <i className="fa fa-check mr-2 text-primary"></i> Productivity Analytics</li>
+
+                    <li className="mb-3 text-muted">
+                    <i className="fa fa-times mr-2"></i>
+                    <del>Discovery Mode</del>
+                  </li>
                   <li className="mb-3 text-muted">
                     <i className="fa fa-times mr-2"></i>
-                    <del>Sed ut perspiciatis</del>
+                    <del> Job Search</del>
                   </li>
                 </ul>
                 <a href="#" className="btn btn-primary btn-block p-2 shadow rounded-pill">Subscribe</a>
@@ -92,24 +92,22 @@ function Pricing(props) {
 
             <div className="col-lg-4">
               <div className="bg-white p-5 rounded-lg shadow">
-                <h1 className="h6 text-uppercase font-weight-bold mb-4">Enterprise</h1>
-                <h2 className="h1 font-weight-bold">$899<span className="text-small font-weight-normal ml-2">/ month</span></h2>
+                <h1 className="h6 text-uppercase font-weight-bold mb-4">Professional</h1>
+                <h2 className="h1 font-weight-bold">$9.99<span className="text-small font-weight-normal ml-2">/ month</span></h2>
       
                 <div className="custom-separator my-4 mx-auto bg-primary"></div>
       
                 <ul className="list-unstyled my-5 text-small text-left font-weight-normal">
                   <li className="mb-3">
-                    <i className="fa fa-check mr-2 text-primary"></i> Lorem ipsum dolor sit amet</li>
+                    <i className="fa fa-check mr-2 text-primary"></i> Interactive Calendars</li>
                   <li className="mb-3">
-                    <i className="fa fa-check mr-2 text-primary"></i> Sed ut perspiciatis</li>
+                    <i className="fa fa-check mr-2 text-primary"></i> Planning Boards</li>
                   <li className="mb-3">
-                    <i className="fa fa-check mr-2 text-primary"></i> At vero eos et accusamus</li>
+                    <i className="fa fa-check mr-2 text-primary"></i> Productivity Analytics</li>
                   <li className="mb-3">
-                    <i className="fa fa-check mr-2 text-primary"></i> Nam libero tempore</li>
+                    <i className="fa fa-check mr-2 text-primary"></i> Discovery Mode</li>
                   <li className="mb-3">
-                    <i className="fa fa-check mr-2 text-primary"></i> Sed ut perspiciatis</li>
-                  <li className="mb-3">
-                    <i className="fa fa-check mr-2 text-primary"></i> Sed ut perspiciatis</li>
+                    <i className="fa fa-check mr-2 text-primary"></i> Job Search</li>
                 </ul>
                 <a href="#" className="btn btn-primary btn-block p-2 shadow rounded-pill">Subscribe</a>
               </div>

@@ -44,7 +44,7 @@ function Features(props) {
               <div class="feature-content">
               <img src={list} style={{width: '8vw', alignContent:"center", paddingBottom:"50px"}}></img>
               <h4>Planning Boards</h4>
-                <p>Planning Boards allows users to not rlly sure yet but here</p>
+                <p>Planning Boards allows users to plan out anything from projects to life goals</p>
                 
               </div>
             </div> 
@@ -56,7 +56,7 @@ function Features(props) {
               <div class="feature-content">
               <img src={prod} style={{width: '8vw', alignContent:"center", paddingBottom:"50px"}}></img>
               <h4>Productivity Analytics</h4>
-                <p>Voice Channels lets users to not rlly sure yet but here</p>
+                <p>Productivity analytics lets users track their productivity and compare with friends</p>
                 
               </div>
             </div> 
@@ -68,7 +68,7 @@ function Features(props) {
               <div class="feature-content">
               <img src={job} style={{width: '8vw', alignContent:"center", paddingBottom:"50px"}}></img>
               <h4>Job Search</h4>
-                <p>Game Rooms lets you not rlly sure yet but play games</p>
+                <p>ob Search is a feature that currates job postings from LinkedIn, Lever and more</p>
                 
               </div>
             </div> 
@@ -80,7 +80,7 @@ function Features(props) {
               <div class="feature-content">
               <img src={disc} style={{width: '8vw', alignContent:"center", paddingBottom:"50px"}}></img>
               <h4>Discovery Mode</h4>
-                <p>Discovery Mode lets users discover new things to learn based on certain interests and friend interests </p>
+                <p>Discovery Mode lets users discover new things to learn based on certain interests </p>
                 
               </div>
             </div> 
