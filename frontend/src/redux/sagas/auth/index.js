@@ -41,6 +41,7 @@ function* authLogin(action) {
             yield put(storeOwner(response.data.user.id));
             yield put(storeToken(response.data.token, true))
         }
+        window.location.replace("http://localhost:3000")
     } catch {
         console.log("Error")
     }
@@ -54,6 +55,7 @@ function* authRegister(action) {
             yield put(storeOwner(response.data.user.id));
             yield put(storeToken(response.data.token, true));
         }
+        window.location.replace("http://localhost:3000")
     } catch {
         console.log("Error");
     }
