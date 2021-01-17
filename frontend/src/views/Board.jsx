@@ -69,13 +69,19 @@ const onDragEnd = (result, columns, setColumns) => {
   }
 };
 
-function Board() {
+function Board(props) {
   const [columns, setColumns] = useState(columnsFromBackend);
   return (
     <div>
     <Card.Img src= {map} alt="Card image" style={{backgroundColor: 'white'}} height='100%' width='100%'/>
     <Card.ImgOverlay>
-    <div style={{ display: "flex", justifyContent: "center", height: "100%", marginTop:"100px"}}>
+    <div style={{marginTop: '100px'}} className="container">
+      <div className="d-grid gap-2 d-md-block">
+        <button style={{marginRight: 10}} className="btn btn-primary">add task</button>
+        <button className="btn btn-primary">run analytics</button>
+      </div>
+    </div>
+    <div style={{ display: "flex", justifyContent: "center", height: "100%", marginTop:"10px"}}>
       <DragDropContext
         onDragEnd={result => onDragEnd(result, columns, setColumns)}
       >
