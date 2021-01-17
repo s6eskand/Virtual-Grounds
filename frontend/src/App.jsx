@@ -22,6 +22,7 @@ import Profile from './views/Profile';
 import Board from './views/Board';
 import Base from './views/Base';
 import Chat from './views/Chat';
+import Analytics from './views/Analytics';
 function App() {
   return (
     <div> 
@@ -30,7 +31,7 @@ function App() {
                 <BrowserRouter>
                   <Navbar2 />
             
-                    <Chat />
+                    <Analytics />
             
                 </BrowserRouter>
             </PersistGate>
