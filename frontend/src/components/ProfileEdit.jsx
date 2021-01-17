@@ -1,5 +1,8 @@
 
 import React, { useState } from 'react';
+import headshot from '../img/headshot.png';
+import Button from 'react-bootstrap/Button';
+
 
 function ProfileEdit(props) {
     const [state, setState] = useState({
@@ -13,9 +16,11 @@ function ProfileEdit(props) {
   <div class="col-xs-12 col-sm-9">
     <form class="form-horizontal">
         <div class="panel panel-default">
-          <div class="panel-body text-center">
-           <img src="https://bootdey.com/img/Content/avatar/avatar6.png" class="img-circle profile-avatar" alt="User avatar"></img>
+          <div class="panel-body text-center" style={{marginTop:"100px"}}>
+           <img src={headshot} class="img-circle profile-avatar" alt="User avatar" width='200px'></img>
+           
           </div>
+          <Button class="panel-body text-center button-center" style={{width:'180px', marginLeft:"39%"}} variant="dark">Upload New Photo</Button>{' '}
         </div>
       <div class="panel panel-default">
         <div class="panel-heading">
