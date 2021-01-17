@@ -2,6 +2,12 @@ from rest_framework import views, response, status, permissions
 from .serializers import TaskSerializer
 from ..models import Task
 
+# helper function to convert datetime.time into numeric value
+def datetime_to_int(datetime):
+    hours = datetime.hour
+    minute = datetime.minute / 60
+    return hours + minute
+
 class TaskListCreateView(views.APIView):
 
     permission_classes = [
@@ -29,6 +35,13 @@ class TaskAnalytics(views.APIView):
         permissions.IsAuthenticated
     ]
 
+    '''
+    STEPS FOR ANALYTICS
+    1. Total time of completed tasks in week
+    2. Total time of tasks not completed
+    3. Breakdown of all categories (time)
+    4. Sleep analysis (later)
+    '''
     def post(self, request):
         curr_date = request.data["date"]
         split_date = curr_date.split("-")
@@ -39,53 +52,30 @@ class TaskAnalytics(views.APIView):
             owner=self.request.user, 
             date_to_complete__range=[last_week, curr_date]
         )
-        serializer = TaskSerializer(queryset, many=True)
 
-        #idk where to put this function, it could probably be in the for loop?
-        def total_task_time(request)
-            curr_time_1 = request.data["time_to_complete"]
-            split_time_1 = curr_time_1.split(":")
-            curr_time_2 = request.data["time_to_start"]
-            split_time_2 = curr_time_2.split(":")
-            return total_task_time = [split_time_2[0]-split_time_1[0], split_time_2[1]-split_time_1[1]]
+        categories = {
+            "total": 0,
+            "total_completed": 0,
+            "total_uncompleted": 0, 
+        }
+        for task in queryset:
+            category = task.task_name
+            start = datetime_to_int(task.time_to_start)
+            end = datetime_to_int(task.time_to_complete)
+            time_for_task = end - start
+            categories["total"] += time_for_task
+            if task.status == "COMPLETED":
+                categories["total_completed"] += time_for_task
+            else:
+                categories["total_uncompleted"] += time_for_task
 
-        total_time = []
-        for task in queryset:
-            total_time[0] += total_task_time[0]
-            total_time[1] += total_task_time[1]
-        new_total = ":".join(total_time)
+            if categories.get(category):
+                categories[category] += time_for_task
+            else:
+                categories[category] = time_for_task
 
-        total_gym_time = []
-        for task in queryset:
-            if task.task_name == "gym" 
-               or task.task_name == "workout"
-               or task.task_name == "exercise"
-               or task.task_name == "aerobics"
-               or task.task_name == "fitness" 
-                total_gym_time[0] += total_task_time[0]
-                total_gym_time[1] += total_task_time[1]
-        new_total_gym = ":".join(total_gym_time)
-        
-        total_study_time = []
-        for task in queryset:
-            if task.task_name == "study" 
-               or task.task_name == "class" 
-               or task.task_name == "school" 
-               or task.task_name == "education"
-               or task.task_name == "learn"
-                total_study_time[0] += total_task_time[0]
-                total_study_time[1] += total_task_time[1]
-        new_total_study = ":".join(total_study_time)
-        
-        total_work_time = []
-        for task in queryset:
-            if task.task_name == "work" 
-               or task.task_name == "office" 
-               or task.task_name == "job" 
-               or task.task_name == "career"
-                total_work_time[0] += total_task_time[0]
-                total_work_time[1] += total_task_time[1]
-        new_total_work = ":".join(total_work_time)
+        categories["available_down_time"] = 168 - categories["total"]
 
-        # hours per week organized
-        # 
+        return response.Response(
+            categories, status=status.HTTP_200_OK
+        )
