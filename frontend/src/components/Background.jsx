@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 import React from 'react';
-=======
-import React, { useState } from 'react';
->>>>>>> e1a0135948dde8d1b7dc0516d5dab0091bf71d37
 
 import CardDeck from 'react-bootstrap/CardDeck';
 import Card from 'react-bootstrap/Card';
@@ -14,17 +10,10 @@ import list from '../img/list.png';
 import prod from '../img/prod.png';
 import job from '../img/job.png';
 import disc from '../img/disc.png';
-<<<<<<< HEAD
 
 import { Link } from 'react-router-dom';
 
 function Background(props) {
-=======
-function Background(props) {
-    const [state, setState] = useState({
-        counter: 0,
-    })
->>>>>>> e1a0135948dde8d1b7dc0516d5dab0091bf71d37
 
     return(
       <div>
@@ -45,17 +34,10 @@ function Background(props) {
             </Card >
             <CardGroup style={{ width: '40vh', marginLeft:'39%'}}>
               <Card className = 'button-center' style={{backgroundColor: 'rgba(0, 0, 0, 0)', border: 'none'}}>
-<<<<<<< HEAD
               <Button variant="dark"><Link style={{color: '#fff'}} to="/login">Log In</Link></Button>{' '}
               </Card>
               <Card className = 'button-center' style={{backgroundColor: 'rgba(0, 0, 0, 0)', border: 'none'}}>
               <Button variant="dark"><Link style={{color: '#fff'}} to="/register">Sign Up</Link></Button>{' '}
-=======
-              <Button href="../views/Login.jsx" variant="dark" onClick={event =>  window.location.href='../views/Login.jsx'}>Log In</Button>{' '}
-              </Card>
-              <Card className = 'button-center' style={{backgroundColor: 'rgba(0, 0, 0, 0)', border: 'none'}}>
-              <Button variant="dark">Sign Up</Button>{' '}
->>>>>>> e1a0135948dde8d1b7dc0516d5dab0091bf71d37
               </Card>
             </CardGroup>
             <Card className='space-card'>
